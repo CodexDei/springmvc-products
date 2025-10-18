@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/product-result.css">
+  </head>
+  <body>
+    <div class="result-container">
+      <div class="sucess-message" th:text="${message}"></div>
+
+      <h2>Result Product:</h2>
+
+      <div class="product-details">
+
+        <div class="detail-row">
+          <span class="detail-label">ID:</span>
+          <span class="detail-value" th:text="${product.id}"></span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">NAME:</span>
+          <span class="detail-value" th:text="${product.name}"></span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">CATEGORY:</span>
+          <span class="detail-value" th:text="${product.category}"></span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">PRICE:</span>
+          <span class="detail-value" th:text="${product.price}"></span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <a th:href="@{/products/new}" class="btn-primary">Add product</a>
+        <a th:href="@{/products/list}" class="btn-secondary">View List Products</a>
+      </div>
+    </div>
+  </body>
+</html>

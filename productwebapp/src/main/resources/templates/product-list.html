@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/product-list.css">
+</head>
+<body>
+
+    <div class="list-container">
+        
+        <h2>List Products</h2>
+
+        <div th:if="${products.isEmpty()}" class="empty-message">
+            No Products found
+        </div>
+
+        <table th:if="${!products.isEmpty()}">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.category}"></td>
+                    <td class="price" th:text="'$' + ${product.price}"></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <a th:href="@{/products/new}" class="btn.add">Add Product</a>
+
+
+
+
+
+    </div>
+    
+</body>
+</html>
